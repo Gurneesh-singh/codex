@@ -1,0 +1,43 @@
+{
+  "name": "backend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run build && concurrently -k \"tsc --watch --preserveWatchOutput\" \"node --watch dist/server.js\"",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "npm run build && node --test dist/app.test.js dist/services/billing.test.js dist/services/voice.test.js"
+  },
+  "dependencies": {
+    "@pdf-lib/fontkit": "^1.1.1",
+    "@supabase/supabase-js": "^2.117.2",
+    "@types/multer": "^2.3.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "multer": "^2.4.0",
+    "pdf-lib": "^1.17.1",
+    "pg": "^8.16.3",
+    "pino": "^9.9.5",
+    "pino-http": "^10.5.0",
+    "qrcode": "^1.5.4",
+    "regenerator-runtime": "^0.13.11",
+    "zod": "^4.1.5"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^22.18.6",
+    "@types/pg": "^8.15.5",
+    "@types/qrcode": "^1.5.6",
+    "@typescript-eslint/eslint-plugin": "^8.44.1",
+    "@typescript-eslint/parser": "^8.44.1",
+    "concurrently": "^10.0.5",
+    "eslint": "^9.36.0",
+    "typescript": "~6.0.3"
+  }
+}

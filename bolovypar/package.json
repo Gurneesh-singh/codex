@@ -1,0 +1,25 @@
+{
+  "name": "bolovyapar",
+  "private": true,
+  "workspaces": [
+    "mobile",
+    "backend"
+  ],
+  "scripts": {
+    "dev:mobile": "npm run start -w mobile",
+    "dev:web": "npm run web -w mobile",
+    "dev:api": "npm run dev -w backend",
+    "typecheck": "npm run typecheck -w mobile && npm run typecheck -w backend",
+    "lint": "npm run lint -w mobile && npm run lint -w backend",
+    "test": "npm run test -w backend",
+    "verify:auth-db": "node --env-file=backend/.env scripts/verify-milestone2.mjs",
+    "verify:commerce-db": "node --env-file=backend/.env scripts/verify-commerce-db.mjs",
+    "verify:commerce-api": "node --env-file=backend/.env scripts/verify-commerce-api.mjs",
+    "verify:voice-api": "node --env-file=backend/.env scripts/verify-voice-api.mjs",
+    "create:synthetic-voice": "node --env-file=backend/.env scripts/create-synthetic-voice-sample.mjs",
+    "evaluate:asr": "node --env-file=backend/.env scripts/evaluate-asr.mjs"
+  },
+  "devDependencies": {
+    "supabase": "^2.118.0"
+  }
+}
